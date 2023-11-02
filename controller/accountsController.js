@@ -45,5 +45,21 @@ module.exports={
             console.log(error);
             return res.status(error.rc || 500).send(error)
         }
-    }
+    },
+    register : async(req,res,next)=>{
+        try {
+            console.log("check data from client", req.body);
+            if(req.body.password.length>=8 && req.body.password === req.body.confirmPassword){
+                //Lanjut register
+                console.log("masuk register");
+            } {}
+        } catch (error) {
+            console.log(error);
+            return res.status(500).send(error)
+        }
+    },
+    login : async(req,res,next)=>{
+
+    },
+
 }
