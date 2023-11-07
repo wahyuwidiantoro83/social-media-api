@@ -1,5 +1,4 @@
-
 const postRouter = require("./post");
-const accountsRouter = require("./accountsRouter");
+const accountsRouter = require("./account");
 
-module.exports = { postRouter,accountsRouter, };
+module.exports = { postRouter, accountsRouter };

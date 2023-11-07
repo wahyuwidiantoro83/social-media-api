@@ -11,23 +11,28 @@ module.exports = {
       },
       username: {
         type: Sequelize.STRING,
-        allowNull:  false
+        allowNull: false,
       },
       email: {
         type: Sequelize.STRING,
-        allowNull:  false
+        allowNull: false,
       },
       phone: {
         type: Sequelize.STRING,
-        allowNull:  false
+        allowNull: false,
+      },
+      role: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: "user",
       },
       password: {
         type: Sequelize.STRING,
-        allowNull:  false
+        allowNull: false,
       },
       isVerified: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: false,
       },
       createdAt: {
         allowNull: false,
