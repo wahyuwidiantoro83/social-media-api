@@ -1,5 +1,6 @@
-const accountsRouter = require("./accounts")
+const userRouter = require("./users")
+const postRouter = require("./post");
+const accountsRouter = require("./accountsRouter");
+const tweetsRouter = require("./tweets")
 
-module.exports={
-    accountsRouter
-}
+module.exports = { postRouter,accountsRouter, userRouter, tweetsRouter };

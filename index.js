@@ -1,19 +1,28 @@
-require("dotenv").config()
-const express = require("express")
-const app = express()
-const PORT =process.env.PORT||2000
-const cors = require("cors")
-const { accountsRouter } = require("./router")
-app.use(cors())
-app.use(express.json())
+require("dotenv").config();
+const PORT = process.env.PORT || 2000;
+const express = require("express");
+const app = express();
+const cors = require("cors");
+const bearerToken = require ("express-bearer-token")
 
-app.get("/",(req,res)=>{
-    return res.status(200).send("<h1>ORM API is Running</h1>")
-})
+app.use(cors());
+app.use(express.json());
+app.use(bearerToken())
 
-//define routers
-app.use("/login", accountsRouter)
+const { postRouter } = require("./router");
+app.use("/post", postRouter);
 
-app.listen(PORT, ()=>{
-    console.log("ORM API RUNNING", PORT);
-})
+const {accountsRouter} = require("./router");
+app.use("/account", accountsRouter);
+
+const {userRouter, tweetsRouter} = require("./router");
+app.use("/user", userRouter);
+app.use("/tweet", tweetsRouter);
+app.use("/public", express.static("public")); // guna bisa mengakses foleder public dalam server
+
+
+
+app.listen(PORT, () => {
+  console.log(`API RUNNING ON PORT ${PORT}`);
+});
+
